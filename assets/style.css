@@ -11,6 +11,9 @@ p {
     font-family: sans-serif;
     color: White;
 }
+.lead {
+    color: white;
+}
 
 /* Monday - Sunday column card style */
 .card {
@@ -101,13 +104,13 @@ p {
         flex-wrap: wrap;
     }
 
-    .col-2 {
-        /* margin-right: 0; */
+    /* .col-2 {
+        margin-right: 0;
     }
 
     .col-3 {
-        /* margin-top: 25px; */
-    }
+        margin-top: 25px;
+    } */
 }
 
 /* breakpoint 3 */
