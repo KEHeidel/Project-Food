@@ -52,7 +52,7 @@ function getrecipe(q) {
     for (var i = 0; i < res.results.length; i++) {
           recipes +=
         `<div class="item">
-        <p> ${res.results[i].title} </p> <img class='stick' src="${res.baseUri}${res.results[i].image}" height='150' width='200'/>
+        <p><a href="${recipeurls[i]}"> ${res.results[i].title} </a></p> <img class='stick' src="${res.baseUri}${res.results[i].image}" height='150' width='200'/>
        </div>`;
     }
     document.getElementById("output").innerHTML = recipes
