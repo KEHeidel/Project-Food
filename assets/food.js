@@ -1,10 +1,5 @@
-// api variables
-var offset = 0
-var number = 10
-var apiKey = "dc44adf1107f415d8a101a4fa04c727c"
-
 // search bar (sliding)
-const trigger = document.querySelector(".trigger");
+const trigger = document.querySelector(".searchButton");
 const input = document.querySelector(".input");
 
 
@@ -25,14 +20,21 @@ input.addEventListener("keypress", function(event) {
   }
 });
 
-//  api key
+// api variables
+var offset = 0;
+var number = 10;
+var apiKey = "ebd3c07a0d5542c69c8f71d07e4ac0f4";
+
+//  api key & function
 
 function getrecipe(q) {
   offset = Math.floor(Math.random() * 100);
+
   var recipes = ""
   var recipeids = []
   var recipeurls = []
   var queryURL = "https://api.spoonacular.com/recipes/search?query=" + q + "&offset=" + offset + "&number=" + number + "&apiKey=" + apiKey;
+
   console.log("queryURL: " + queryURL);
 
   $.ajax({
@@ -42,14 +44,19 @@ function getrecipe(q) {
   }).then(function(res) {
     // show picture and recipe
     for (var i = 0; i < res.results.length; i++) {
+
       recipeids.push(res.results[i].id);
     }
     recipeurls = getrecipeinfo(recipeids.join())
     console.log("recipeurls: " + recipeurls);
     for (var i = 0; i < res.results.length; i++) {
-      recipes += "<h1>" + "<a href=" + recipeurls[i] + ">" + res.results[i].title + "</a></h1><br><img src='" + res.baseUri + res.results[i].image + "'width='400'/><br> ready in " + res.results[i].readyInMinutes + "minutes";
+          recipes +=
+        `<div class="item">
+        <p> ${res.results[i].title} </p> <img class='stick' src="${res.baseUri}${res.results[i].image}" height='150' width='200'/>
+       </div>`;
     }
     document.getElementById("output").innerHTML = recipes
+
   });
 }
 
@@ -76,10 +83,14 @@ function getrecipeinfo(id) {
 $(document).ready(function() {
   input.classList.add("input-open");
 
-  $(".trigger").on("click", function(event) {
+
+  $(".searchButton").on("click", function(event) {
+
     // helps to make sure form is filled in
     event.preventDefault();
     var searchTerm = $("#search").val().trim();
     getrecipe(searchTerm);
   });
+
+  
 });
