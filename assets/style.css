@@ -203,6 +203,37 @@ p {
   margin-bottom: 40px;
   justify-content: center;
 }
+.input-restaurant {
+    border-radius: 2px;
+    border: 0;
+    outline: 0;
+    transition: 0.25s ease-in-out all;
+    width: 0;
+    padding: 0;
+    margin-right: -25px;
+    opacity: 95%;
+    background-color: #e2c274;
+    color: black;
+  }
+  .input-open-restaurant {
+    width: 30vw;
+    padding: 0 10px;
+    margin-right: 10px;
+  }
+.searchButtonRestaurant {
+    background-image: url("../assets/images/icons8-search-100.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 15px 30px 15px 30px;
+    opacity: 80%;
+    background-color: #e2c274;
+    /* border: black 3px solid; */
+    border-radius: 10%;
+    box-shadow: 3px 3px 3px 3px rgb(20, 5, 32);
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
 
 /* sticky footer */
 .footer {
