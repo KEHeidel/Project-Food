@@ -156,6 +156,7 @@ p {
     border-radius: 8px;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
 }
+
 .trigger {
 	background: slategrey;
 	border: 0;
@@ -169,7 +170,29 @@ p {
 	outline: 0;
 	cursor: pointer;
 }
+.trigger-restaurant {
+	background: slategrey;
+	border: 0;
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: black;
+	outline: 0;
+	cursor: pointer;
+}
 .input {
+	border-radius: 2px;
+	border: 0;
+	outline: 0;
+	transition: 0.25s ease-in-out all;
+	width: 0;
+	padding: 0;
+	margin-right: -25px;
+}
+.input-restaurant {
 	border-radius: 2px;
 	border: 0;
 	outline: 0;
