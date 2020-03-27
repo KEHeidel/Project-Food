@@ -1,213 +1,297 @@
+html,
+body {
+  height: 100%;
+  position: relative;
+}
+
+body {
+    background-image: url("../assets/images/pexels-photo-purpleandgreen.jpeg");
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Gotu", sans-serif;
+}
+
+.containerWhole {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 /* jumbotron style */
 .jumbotron {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background-color: slategrey;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #756382;
+  opacity: 90%;
 }
 
 .jumbotron h1,
 p {
-    font-family: sans-serif;
-    color: White;
+  opacity: none;
+  color: White;
 }
 .lead {
-    color: white;
+  color: white;
+  width: 60%;
 }
-
+/* wrapper */
+.wrapper {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
 /* Monday - Sunday column card style */
 .card {
-    max-width: 200px;
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
-    margin-right: 25px;
-    transition: 0.2s ease-in-out;
+  max-width: 200px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+  margin-right: 25px;
+  transition: 0.2s ease-in-out;
+  /* border-radius: 10%; */
+  box-shadow: 3px 3px 3px 3px rgb(20, 5, 32);
 }
 
 .card .card-header {
-    width: 100%;
-    height: 50px;
-    border-top-left-radius: 8px;
-    border-top-left-radius: 8px;
-    font-family: sans-serif;
-    font-size: x-large;
-    text-align: center;
+  width: 100%;
+  height: 80px;
+  border-top-left-radius: 8px;
+  border-top-left-radius: 8px;
+  opacity: 70%;
+  color: #ffffff;
+  background-color: #f9bb9d;
+  background-repeat: no-repeat;
+  border-radius: 8px;
 }
 
 .col-1.card .card-header {
-    color: #ffffff;
-    background-color: slategrey;
+  background-image: url("../assets/images/icons8-monday-80.png");
 }
 
 .col-2.card .card-header {
-    color: #ffffff;
-    background-color: slategrey;
+  background-image: url("../assets/images/icons8-tuesday-80.png");
 }
 
 .col-3.card .card-header {
-    color: #ffffff;
-    background-color: slategrey;
+  background-image: url("../assets/images/icons8-wednesday-80.png");
 }
 
 .col-4.card .card-header {
-    color: #ffffff;
-    background-color: slategrey;
+  background-image: url("../assets/images/icons8-thursday-80.png");
 }
 
 .col-5.card .card-header {
-    color: #ffffff;
-    background-color: slategrey;
+  background-image: url("../assets/images/icons8-friday-80.png");
 }
 
 .col-6.card .card-header {
-    color: #ffffff;
-    background-color: slategray;
+  background-image: url("../assets/images/icons8-saturday-80.png");
 }
 
 .col-7.card .card-header {
-    color: #ffffff;
-    background-color: slategrey;
+  background-image: url("../assets/images/icons8-sunday-80.png");
 }
 
 .card .card-body {
-    padding: 20px;
+  padding: 20px;
 }
 
 .card .card-body h2,
 p {
-    margin-bottom: 5px;
-    color: black;
+  font-size: large;
+  margin-bottom: 5px;
+  color: black;
 }
 
+/* search bar */
+.whole-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: #ffffff;
+}
 
+.search-wrapper {
+  width: 50%;
+  display: flex;
+  border-radius: 8px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+  opacity: 80%;
+  background-color: #e2c274;
+}
+.searchButton {
+  background-image: url("../assets/images/icons8-search-100.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 15px 30px 15px 30px;
+  opacity: 80%;
+  background-color: #e2c274;
+  /* border: black 3px solid; */
+  border-radius: 10%;
+  box-shadow: 3px 3px 3px 3px rgb(20, 5, 32);
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.input {
+  border-radius: 2px;
+  border: 0;
+  outline: 0;
+  transition: 0.25s ease-in-out all;
+  width: 0;
+  padding: 0;
+  margin-right: -25px;
+  opacity: 95%;
+  background-color: #e2c274;
+  color: black;
+}
+.input-open {
+  width: 30vw;
+  padding: 0 10px;
+  margin-right: 10px;
+}
 
+/* recipe results (pop out or new box?) */
+#output {
+    
+  /* background: scroll; */
+  background-color: #f9bb9d; 
+  width: 50%;
+  /* height: auto; */
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+  border-radius: 8px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+  opacity: 80%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  /* justify-content: center; */
+  margin: 0 auto;
+}
 
+.item {
+    flex: 1 1 150px;
+    padding: 10px;
+    /* width: 32%; */
+}
 
-/* desktp layout until Breakpoint 1 */
-.wrapper {
-    width: 100%;
-    display: flex;
+.stick {
+    position: relative;
+    bottom: 0;
+}
+
+/* selected recipe (pop out or box) */
+/* restaurant search */
+.restSearch {
+  background: scroll;
+  background-color: #f9bb9d; 
+  width: 100%;
+  display: flex;
+  border-radius: 8px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+  opacity: 80%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  justify-content: center;
+}
+.input-restaurant {
+    border-radius: 2px;
+    border: 0;
+    outline: 0;
+    transition: 0.25s ease-in-out all;
+    width: 0;
+    padding: 0;
+    margin-right: -25px;
+    opacity: 95%;
+    background-color: #e2c274;
+    color: black;
+  }
+  .input-open-restaurant {
+    width: 30vw;
+    padding: 0 10px;
+    margin-right: 10px;
+  }
+.searchButtonRestaurant {
+    background-image: url("../assets/images/icons8-search-100.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 15px 30px 15px 30px;
+    opacity: 80%;
+    background-color: #e2c274;
+    /* border: black 3px solid; */
+    border-radius: 10%;
+    box-shadow: 3px 3px 3px 3px rgb(20, 5, 32);
     justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+
+/* sticky footer */
+.footer {
+  flex-shrink: 0;
+  background-color: #756382;
+  color: lightslategray;
+  /* height: 40px; */
+  text-align: center;
+  opacity: 60%;
+  /* position: absolute; */
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+/* desktop layout until Breakpoint 1 */
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex: 1 0 auto;
 }
 
 /* breakpoint 1 */
-@media(max-width: 1500px){
-    .wrapper, .jumbotron {
-        flex-wrap: wrap;
-    }
-
+@media (max-width: 1500px) {
+  .wrapper,
+  .jumbotron {
+    flex-wrap: wrap;
+  }
 }
 /* breakpoint 2 */
 @media (max-width: 700px) {
-    .wrapper {
-        flex-wrap: wrap;
-    }
-
-    /* .col-2 {
-        margin-right: 0;
-    }
-
-    .col-3 {
-        margin-top: 25px;
-    } */
+  .wrapper {
+    flex-wrap: wrap;
+  }
 }
 
 /* breakpoint 3 */
 @media (max-width: 480px) {
-    .wrapper {
-        flex-direction: column;
-        align-items: center;
-    }
+  .wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .card {
-        margin: 0;
-        margin-bottom: 25px;
-        width: 100%;
-    }
+  .card {
+    margin: 0;
+    margin-bottom: 25px;
+    width: 100%;
+  }
 
-    .col-3 {
-        margin-bottom: 0;
-    }
+  .col-3 {
+    margin-bottom: 0;
+  }
 }
 
 /* breakpoint 4 */
 @media (max-width: 375px) {
-    .card {
-        max-width: 100%;
-    }
+  .card {
+    max-width: 100%;
+  }
 }
-
-
-
-/* search bar */
-.whole-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
-}
-
-
-.search-wrapper {
-    width: 50%;
-    display: flex;
-    border-radius: 8px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
-}
-
-.trigger {
-	background: slategrey;
-	border: 0;
-	border-radius: 50%;
-	width: 20px;
-	height: 20px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: black;
-	outline: 0;
-	cursor: pointer;
-}
-.trigger-restaurant {
-	background: slategrey;
-	border: 0;
-	border-radius: 50%;
-	width: 20px;
-	height: 20px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: black;
-	outline: 0;
-	cursor: pointer;
-}
-.input {
-	border-radius: 2px;
-	border: 0;
-	outline: 0;
-	transition: 0.25s ease-in-out all;
-	width: 0;
-	padding: 0;
-	margin-right: -25px;
-}
-.input-restaurant {
-	border-radius: 2px;
-	border: 0;
-	outline: 0;
-	transition: 0.25s ease-in-out all;
-	width: 0;
-	padding: 0;
-	margin-right: -25px;
-}
-.input-open {
-	width: 30vw;
-	padding: 0 10px;
-	margin-right: 10px;
-}
-
-/* recipe results (pop out or new box?) */
-
-
-/* selected recipe (pop out or box) */
