@@ -216,7 +216,7 @@ h3{
     background-color: #e2c274;
     color: black;
   }
-  .input-open-restaurant {
+.input-open-restaurant {
     width: 30vw;
     padding: 0 10px;
     margin-right: 10px;
@@ -234,6 +234,19 @@ h3{
     justify-content: center;
     display: flex;
     align-items: center;
+  }
+  .even-odd button{
+    align-content: center;
+    background-color: white;
+    padding: 5px 15px 5px 15px;
+    opacity: 80%;
+    /* border: black 3px solid; */
+    border-radius: 10%;
+    box-shadow: 3px 3px 3px 3px rgb(20, 5, 32);
+    justify-content: center;
+    display: block;
+    margin: 0;
+    /* align-items: center; */
   }
 
 /* sticky footer */
