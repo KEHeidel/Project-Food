@@ -191,6 +191,8 @@ $(document).ready(function() {
           <b>${"Hours Open: "}</b> ${resultsTime}
           </div>`;
         }
+        console.log(resultsImg);
+        
         // appending restaurant variable to output section in html 
         $("#output").append(restaurant)
             
