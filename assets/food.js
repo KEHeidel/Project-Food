@@ -256,3 +256,9 @@ $(document).ready(function() {
 
   
 });
+
+$("textarea").keypress(function(event){
+  if (event.which === 13) {
+    event.stopPropagation();
+  }
+})
