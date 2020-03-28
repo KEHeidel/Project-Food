@@ -3,7 +3,7 @@ const trigger = document.querySelector(".searchButton");
 const input = document.querySelector(".input");
 const inputRest = document.querySelector(".input-restaurant");
 
-// event listener that allows the search bar to 
+// event listener for search bar keypress
 document.addEventListener("keypress", function(event) {
   // console.log(event)
   if (event.which == 13) {
