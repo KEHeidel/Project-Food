@@ -27,10 +27,16 @@ input.addEventListener("keypress", function(event) {
   }
 });
 
+
 // spoonacular api variables
+
+var icons = {}
+
+// api variables
+
 var offset = 0;
-var number = 10;
-var apiKey = "ebd3c07a0d5542c69c8f71d07e4ac0f4";
+var number = 12;
+var apiKey = "645883e4a0414065b4c1cdce1966919e";
 
 // spoonacular api key & function to retrieve recipes
 // variables for pulling info from api
@@ -55,14 +61,25 @@ function getrecipe(q) {
       recipeids.push(res.results[i].id);
     }
     recipeurls = getrecipeinfo(recipeids.join())
+    var iconimgs = ""
     console.log("recipeurls: " + recipeurls);
     for (var i = 0; i < res.results.length; i++) {
-          recipes +=
-        `<div class="item">
-        <p><a href="${recipeurls[i]}"> ${res.results[i].title} </a></p> <img class='stick' src="${res.baseUri}${res.results[i].image}" height='150' width='200'/>
-       </div>`;
+      iconimgs = ""
+      if (icons[res.results[i].id] != false) {
+        for (var j = 0; j < icons[res.results[i].id].length; j++) {
+          iconimgs += icons[res.results[i].id][j]
+        }
+      }
+      recipes +=
+      `<div class="item">
+      <p><a href="${recipeurls[i]}"> ${res.results[i].title} </a></p> <p> ${iconimgs} </p> <img class='stick' src="${res.baseUri}${res.results[i].image}" height='150' width='200'/>
+      </div>`;
     }
+
     // adding retreived recipe information to the document
+
+    console.log(res);
+
     document.getElementById("output").innerHTML = recipes
 
   });
@@ -78,8 +95,42 @@ function getrecipeinfo(id) {
     async: false,
     success: function(res) { 
       urlarray = [];
+      icons = {}
+      console.log("recipeinfo: ")
+      console.log(res)
       for (var i = 0; i < res.length; i++) {
         urlarray.push(res[i].sourceUrl);
+        // icons.push("")
+        if (res[i].vegan || res[i].vegetarian || res[i].glutenFree || res[i].dairyFree) {
+          var tempicon = []
+          if (res[i].vegan) {
+            var temp = "<img class='icons' src='./assets/images/Vegan-Icon.jpg' height='25' width='25'/>"
+          tempicon.push(temp)
+          console.log("vegan: " + res[i].vegan);
+          };
+          if (res[i].vegetarian) {
+            var temp = "<img class='icons' src='./assets/images/Vegetarian-Icon.jpg' height='25' width='25'/>"
+            tempicon.push(temp)
+          // icons[i].push("<img class='icons' src='./assets/images/Vegetarian-Icon.jpg' height='50' width='50'/>")
+          console.log("vegetarian: " + res[i].vegetarian);
+          };
+          if (res[i].glutenFree) {
+            var temp = "<img class='icons' src='./assets/images/Gluten-Free-Icon.jpg' height='25' width='25'/>"
+            tempicon.push(temp)
+          // icons[i].push("<img class='icons' src='./assets/images/Gluten-Free-Icon.jpg' height='50' width='50'/>")
+          console.log("gluten: " + res[i].glutenFree);
+          };
+          if (res[i].dairyFree) {
+            var temp = "<img class='icons' src='./assets/images/Dairy-Free_icon.jpg' height='25' width='25'/>"
+            tempicon.push(temp)
+          // icons[i].push("<img class='icons' src='./assets/images/Dairy-Free_icon.jpg' height='50' width='50'/>")
+          console.log("dairy: " + res[i].dairyFree);
+          };
+          icons[res[i].id] = tempicon
+        }
+        else {
+            icons[res[i].id] = false
+        }
       }
     }
   });
