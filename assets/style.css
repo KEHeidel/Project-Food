@@ -48,7 +48,7 @@ p {
 }
 /* Monday - Sunday column card style */
 .card {
-  max-width: 200px;
+  max-width: 170px;
   background: #ffffff;
   border-radius: 8px;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
@@ -294,4 +294,43 @@ p {
   .card {
     max-width: 100%;
   }
+}
+
+/* accordion tabs */
+
+.accordion {
+  max-width: 40px;
+}
+.tabs {
+  margin: 5px 0;
+}
+.tab-heading {
+  background-color: #756382;
+  padding: 10px;
+  border-radius: 2px;
+  font-size: 5em;
+  color: #e2c274;
+  cursor: pointer;
+  display: block;
+}
+.tab-heading h2 {
+  pointer-events: none;
+}
+.tab-content {
+  background: #f3f3f3;
+  overflow-y: hidden;
+  max-height: 0;
+}
+.tab-content p {
+  margin: 20px;
+}
+.accordion.tabs input {
+  display: none;
+}
+input:checked + .tab-heading {
+  border-radius: 2px 2px 0 0;
+}
+input:checked ~ .tab-content {
+  max-height: 100px;
+  border-radius: 0 0 2px 2px;
 }
