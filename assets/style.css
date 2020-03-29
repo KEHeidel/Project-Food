@@ -106,7 +106,6 @@ p {
 p {
   font-size: large;
   margin-bottom: 5px;
-  color: black;
 }
 
 /* search bar */
@@ -117,15 +116,22 @@ p {
   margin-top: 40px;
   margin-bottom: 40px;
   color: #ffffff;
+  
 }
-
 .search-wrapper {
   width: 50%;
   display: flex;
   border-radius: 8px;
-  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 3px 3px 3px rgb(20, 5, 32);
   opacity: 80%;
   background-color: #e2c274;
+}
+h3{
+  
+  font-size: xx-large;
+}
+#search {
+  font-size: x-large;
 }
 .searchButton {
   background-image: url("../assets/images/icons8-search-100.png");
@@ -161,11 +167,8 @@ p {
 
 /* recipe results (pop out or new box?) */
 #output {
-    
-  /* background: scroll; */
-  background-color: #f9bb9d; 
+  background-color: rgba(0, 0, 0, 0.2); 
   width: 50%;
-  /* height: auto; */
   display: flex;
   flex-wrap: wrap;
   /* justify-content: space-between; */
@@ -177,13 +180,11 @@ p {
   /* justify-content: center; */
   margin: 0 auto;
 }
-
 .item {
     flex: 1 1 150px;
     padding: 10px;
     /* width: 32%; */
 }
-
 .stick {
     position: relative;
     bottom: 0;
@@ -269,7 +270,6 @@ p {
   justify-content: center;
   flex: 1 0 auto;
 }
-
 /* breakpoint 1 */
 @media (max-width: 1500px) {
   .wrapper,
@@ -283,25 +283,21 @@ p {
     flex-wrap: wrap;
   }
 }
-
 /* breakpoint 3 */
 @media (max-width: 480px) {
   .wrapper {
     flex-direction: column;
     align-items: center;
   }
-
   .card {
     margin: 0;
     margin-bottom: 25px;
     width: 100%;
   }
-
   .col-3 {
     margin-bottom: 0;
   }
 }
-
 /* breakpoint 4 */
 @media (max-width: 375px) {
   .card {
@@ -310,7 +306,6 @@ p {
 }
 
 /* accordion tabs */
-
 .accordion {
   max-width: 40px;
 }
@@ -319,18 +314,18 @@ p {
 }
 .tab-heading {
   background-color: #756382;
-  padding: 10px;
+  opacity: 90%;
+  padding: 5px;
   border-radius: 2px;
   font-size: 5em;
-  color: #e2c274;
   cursor: pointer;
   display: block;
+  color: #f3f3f3;
 }
 .tab-heading h2 {
   pointer-events: none;
 }
 .tab-content {
-  background: #f3f3f3;
   overflow-y: hidden;
   max-height: 0;
 }
@@ -410,3 +405,4 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
