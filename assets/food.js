@@ -122,7 +122,6 @@ $(document).ready(function() {
   function clear() {
     $("#output").empty();
   }
-
   // function to get location ID from user based on city entered into search bar 
   // grabbing value entered into search-restaurant and setting it equal to var search
   function getLocation() {
@@ -168,7 +167,7 @@ $(document).ready(function() {
       var restaurant = "";
       // query URL to receive restaurant results based on location 
       var queryURL = "https://developers.zomato.com/api/v2.1/search?entity_id=" + fired_button + "&entity_type=city";
-
+      
       $.ajax({
         url: queryURL,
         method: "GET",
@@ -185,13 +184,20 @@ $(document).ready(function() {
           var resultsImg = response.restaurants[i].restaurant.thumb;
           var resultsAddress = response.restaurants[i].restaurant.location.address;
           var resultsTime = response.restaurants[i].restaurant.timings;
+
+        // adding an img to restaurants without imgs
+        //   if (response.restaurants[i].restaurant.url === ""){
+        //     var resultsImg = $("<img>").attr("src=assets/images/restaurantImg.jpg")
+        //     console.log(resultsImg);
+            
+        //  }
+          
           // setting var restaurant = how we want results displayed on the screen 
           restaurant +=  `<div class="item">
           <p><a href="${resultsUrl}"> ${resultsName} </a></p> <img class='stick' src="${resultsImg}" height='150' width='200'/> <p>${resultsAddress}</p> 
           <b>${"Hours Open: "}</b> ${resultsTime}
           </div>`;
         }
-        console.log(resultsImg);
         
         // appending restaurant variable to output section in html 
         $("#output").append(restaurant)
