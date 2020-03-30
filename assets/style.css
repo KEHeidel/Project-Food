@@ -4,8 +4,9 @@ body {
   position: relative;
 }
 
+
 body {
-    background-image: url("../assets/images/pexels-photo-purpleandgreen.jpeg");
+  background-image: url("../assets/images/pexels-photo-purpleandgreen.jpeg");
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -16,6 +17,8 @@ body {
   background-size: cover;
   font-family: "Gotu", sans-serif;
 }
+
+.meal-selection{display: none};
 
 .containerWhole {
     min-height: 100%;
