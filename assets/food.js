@@ -181,8 +181,8 @@ function getrecipe(q) {
           iconImgs += icons[response.results[i].id][j];
         }
       }
-      recipes += `<div class="item">
-      <p><a href="${recipeInfos[i].sourceUrl}"> ${response.results[i].title} </a></p> <p> ${iconImgs} </p> <img class='stick' src="${response.baseUri}${response.results[i].image}" height='150' width='200'/>
+      recipes += `<div class="item"><div class="recipe-instructions" hidden>${recipeInfos[i].instructions}</div>
+      <p><a href="${recipeInfos[i].sourceUrl}">${response.results[i].title}</a></p> <p>${iconImgs}</p> <img class='stick' src="${response.baseUri}${response.results[i].image}" height='150' width='200'/>
       </div>`;
       // add div thats hidden with the instructions , give class recipe-instructions
     }
