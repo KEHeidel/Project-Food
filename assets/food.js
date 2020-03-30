@@ -2,7 +2,6 @@
 const trigger = document.querySelector(".searchButton");
 const input = document.querySelector(".input");
 
-
 // event listener for search bar keypress
 document.addEventListener("keypress", function(event) {
   // console.log(event)
@@ -34,7 +33,6 @@ input.addEventListener("keypress", function(event) {
 
 
 // spoonacular api variables
-
 var icons = {}
 
 // Zomato API variables
@@ -43,7 +41,6 @@ var array = [];
 var page = 0;
 
 // api variables
-
 var offset = 0;
 var number = 12;
 var apiKey = "4dbfbb712efb4d51a892acc5a40bcb8e";
@@ -111,8 +108,8 @@ function clear() {
         }).then(function(response){
           clear();
           console.log(response);
+          var resultsImg = "";
           for (var i=0; i< response.restaurants.length; i++){
-            console.log(i);
             // setting each desired response to a variable
             var resultsName = response.restaurants[i].restaurant.name;
             var resultsUrl = response.restaurants[i].restaurant.url;
@@ -124,17 +121,12 @@ function clear() {
             <p><a href="${resultsUrl}"> ${resultsName} </a></p> <img class='stick' src="${resultsImg}" height='150' width='200'/> <p>${resultsAddress}</p> 
             <b>${"Hours Open: "}</b> ${resultsTime}
             </div>`;
-          }
-          console.log(resultsImg);
-          
+          };
           // appending restaurant variable to output section in html 
-          $("#output").append(restaurant)
-              
+          $("#output").append(restaurant);   
         });
       });
-          
     });
-      
     };
 
 // spoonacular api key & function to retrieve recipes

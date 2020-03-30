@@ -116,7 +116,6 @@ p {
   margin-top: 40px;
   margin-bottom: 40px;
   color: #ffffff;
-  
 }
 .search-wrapper {
   width: 50%;
@@ -405,4 +404,3 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
-
