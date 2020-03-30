@@ -41,6 +41,7 @@ var page = 0;
 // api variables
 var offset = 0;
 var number = 12;
+
 var apiKey = "645883e4a0414065b4c1cdce1966919e";
 
 // function to clear restaurants displayed on the page
@@ -140,7 +141,7 @@ function getrecipe(q) {
 
   var recipes = "";
   var recipeIds = [];
-  var recipeUrls = [];
+  var recipeInfos = [];
   var queryURL =
     "https://api.spoonacular.com/recipes/search?query=" +
     q + "&offset=" + offset + "&number=" + number + "&apiKey=" + apiKey;
@@ -157,9 +158,9 @@ function getrecipe(q) {
     for (var i = 0; i < response.results.length; i++) {
       recipeIds.push(response.results[i].id);
     }
-    recipeUrls = getRecipeInfo(recipeIds.join());
+    recipeInfos = getRecipeInfo(recipeIds.join());
     var iconImgs = "";
-    console.log("recipeUrls: " + recipeUrls);
+    console.log("recipeUrls: " + recipeInfos);
     for (var i = 0; i < response.results.length; i++) {
       iconImgs = "";
       if (icons[response.results[i].id] != false) {
@@ -168,8 +169,9 @@ function getrecipe(q) {
         }
       }
       recipes += `<div class="item">
-      <p><a href="${recipeUrls[i]}"> ${response.results[i].title} </a></p> <p> ${iconImgs} </p> <img class='stick' src="${response.baseUri}${response.results[i].image}" height='150' width='200'/>
+      <p><a href="${recipeInfos[i].sourceUrl}"> ${response.results[i].title} </a></p> <p> ${iconImgs} </p> <img class='stick' src="${response.baseUri}${response.results[i].image}" height='150' width='200'/>
       </div>`;
+      // add div thats hidden with the instructions , give class recipe-instructions
     }
 
     // adding retreived recipe information to the document
@@ -178,7 +180,7 @@ function getrecipe(q) {
 }
 // function to pull recipe info
 function getRecipeInfo(ids) {
-  var urlarray = [];
+  var recipes = [];
   var queryURL =
     "https://api.spoonacular.com/recipes/informationBulk?ids=" +
     ids + "&apiKey=" + apiKey;
@@ -187,46 +189,55 @@ function getRecipeInfo(ids) {
     url: queryURL,
     method: "GET",
     async: false,
-    success: function(res) {
-      urlarray = [];
+    success: function(response) {
+      console.log("API Response: ", response);
+
+      recipes = [];
       icons = {};
-      for (var i = 0; i < res.length; i++) {
-        urlarray.push(res[i].sourceUrl);
+      for (var i = 0; i < response.length; i++) {
+        var recipeInfo = {
+          sourceUrl: response[i].sourceUrl,
+          instructions: response[i].instructions,
+          title: response[i].title
+
+
+        };
+        recipes.push(response[i]);
         if (
-          res[i].vegan ||
-          res[i].vegetarian ||
-          res[i].glutenFree ||
-          res[i].dairyFree
+          response[i].vegan ||
+          response[i].vegetarian ||
+          response[i].glutenFree ||
+          response[i].dairyFree
         ) {
           var tempicon = [];
-          if (res[i].vegan) {
+          if (response[i].vegan) {
             var temp =
               "<img class='icons' src='./assets/images/Vegan-Icon.jpg' height='30' width='30' title='Vegan'/>";
             tempicon.push(temp);
           }
-          if (res[i].vegetarian) {
+          if (response[i].vegetarian) {
             var temp =
               "<img class='icons' src='./assets/images/Vegetarian-Icon.jpg' height='30' width='30' title='Vegetarian'/>";
             tempicon.push(temp);
           }
-          if (res[i].glutenFree) {
+          if (response[i].glutenFree) {
             var temp =
               "<img class='icons' src='./assets/images/Gluten-Free-Icon.jpg' height='30' width='30' title='Gluten Free'/>";
             tempicon.push(temp);
           }
-          if (res[i].dairyFree) {
+          if (response[i].dairyFree) {
             var temp =
               "<img class='icons' src='./assets/images/Dairy-Free_icon.jpg' height='30' width='30' title='Dairy Free'/>";
             tempicon.push(temp);
           }
-          icons[res[i].id] = tempicon;
+          icons[response[i].id] = tempicon;
         } else {
-          icons[res[i].id] = false;
+          icons[response[i].id] = false;
         }
       }
     }
   });
-  return urlarray;
+  return recipes;
 }
 // add class input-open to input variable and input-open-restaurant to inputRest variable
 $(document).ready(function() {
