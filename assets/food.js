@@ -41,7 +41,7 @@ var page = 0;
 // api variables
 var offset = 0;
 var number = 12;
-var apiKey = "4dbfbb712efb4d51a892acc5a40bcb8e";
+var apiKey = "7c25decce0a648a2bbdc2b3e073086b3";
 
 // function to clear restaurants displayed on the page
 function clear() {
@@ -111,30 +111,41 @@ function getLocation() {
         dataType: "json"
       }).then(function(response) {
         clear();
-        console.log(response);
-        for (var i = 0; i < response.restaurants.length; i++) {
-          console.log(i);
-          // setting each desired response to a variable
-          var resultsName = response.restaurants[i].restaurant.name;
-          var resultsUrl = response.restaurants[i].restaurant.url;
-          var resultsImg = response.restaurants[i].restaurant.thumb;
-          var resultsAddress =
-            response.restaurants[i].restaurant.location.address;
-          var resultsTime = response.restaurants[i].restaurant.timings;
-          // setting var restaurant = how we want results displayed on the screen
-          restaurant += `<div class="item">
+        offset = Math.floor(Math.random() * 100);
+        var fired_button = $(this).val();
+        console.log(fired_button);
+        var restaurant = "";
+        // query URL to receive restaurant results based on location 
+        var queryURL = "https://developers.zomato.com/api/v2.1/search?count=10&start=" + offset + "&entity_type=city&entity_id=" + fired_button;
+  
+        $.ajax({
+          url: queryURL,
+          method: "GET",
+          headers: {"user-key": "daba5326e0fb1e88a8f800820e41822f"},
+          dataType: "json",
+        }).then(function(response){
+          clear();
+          console.log(response);
+          var resultsImg = "";
+          for (var i=0; i< response.restaurants.length; i++){
+            // setting each desired response to a variable
+            var resultsName = response.restaurants[i].restaurant.name;
+            var resultsUrl = response.restaurants[i].restaurant.url;
+            var resultsImg = response.restaurants[i].restaurant.thumb;
+            var resultsAddress = response.restaurants[i].restaurant.location.address;
+            var resultsTime = response.restaurants[i].restaurant.timings;
+            // setting var restaurant = how we want results displayed on the screen 
+            restaurant +=  `<div class="item">
             <p><a href="${resultsUrl}"> ${resultsName} </a></p> <img class='stick' src="${resultsImg}" height='150' width='200'/> <p>${resultsAddress}</p> 
             <b>${"Hours Open: "}</b> ${resultsTime}
             </div>`;
-        }
-        console.log(resultsImg);
-
-        // appending restaurant variable to output section in html
-        $("#output").append(restaurant);
+          };
+          // appending restaurant variable to output section in html 
+          $("#output").append(restaurant);   
+        });
       });
     });
-  });
-}
+    })};
 
 // spoonacular api key & function to retrieve recipes
 // variables for pulling info from api
@@ -142,49 +153,49 @@ function getrecipe(q) {
   offset = Math.floor(Math.random() * 100);
 
   var recipes = "";
-  var recipeids = [];
-  var recipeurls = [];
+  var recipeIds = [];
+  var recipeUrls = [];
   var queryURL =
     "https://api.spoonacular.com/recipes/search?query=" +
     q + "&offset=" + offset + "&number=" + number + "&apiKey=" + apiKey;
 
   console.log("queryURL: " + queryURL);
-
+  
   $.ajax({
     url: queryURL,
     method: "GET",
     async: false
-  }).then(function(res) {
+  }).then(function(response) {
     // show picture and recipe
-    for (var i = 0; i < res.results.length; i++) {
-      recipeids.push(res.results[i].id);
+    console.log("API Response: ", response);
+    for (var i = 0; i < response.results.length; i++) {
+      recipeIds.push(response.results[i].id);
     }
-    recipeurls = getrecipeinfo(recipeids.join());
-    var iconimgs = "";
-    console.log("recipeurls: " + recipeurls);
-    for (var i = 0; i < res.results.length; i++) {
-      iconimgs = "";
-      if (icons[res.results[i].id] != false) {
-        for (var j = 0; j < icons[res.results[i].id].length; j++) {
-          iconimgs += icons[res.results[i].id][j];
+    recipeUrls = getRecipeInfo(recipeIds.join());
+    var iconImgs = "";
+    console.log("recipeUrls: " + recipeUrls);
+    for (var i = 0; i < response.results.length; i++) {
+      iconImgs = "";
+      if (icons[response.results[i].id] != false) {
+        for (var j = 0; j < icons[response.results[i].id].length; j++) {
+          iconImgs += icons[response.results[i].id][j];
         }
       }
       recipes += `<div class="item">
-      <p><a href="${recipeurls[i]}"> ${res.results[i].title} </a></p> <p> ${iconimgs} </p> <img class='stick' src="${res.baseUri}${res.results[i].image}" height='150' width='200'/>
+      <p><a href="${recipeUrls[i]}"> ${response.results[i].title} </a></p> <p> ${iconImgs} </p> <img class='stick' src="${response.baseUri}${response.results[i].image}" height='150' width='200'/>
       </div>`;
     }
 
     // adding retreived recipe information to the document
-    console.log(res);
     document.getElementById("output").innerHTML = recipes;
   });
 }
 // function to pull recipe info
-function getrecipeinfo(id) {
+function getRecipeInfo(ids) {
   var urlarray = [];
   var queryURL =
     "https://api.spoonacular.com/recipes/informationBulk?ids=" +
-    id + "&apiKey=" + apiKey;
+    ids + "&apiKey=" + apiKey;
 
   $.ajax({
     url: queryURL,
@@ -260,8 +271,8 @@ $("textarea").keypress(function(event) {
 
 // function to add selected recipe (by button) 
 // to selected day and meal in planner
-function addRecipeToSelectedMeal() {
-  // ignore recipe data 
-  var recipeData = 
-  addRecipeToSelectedMeal(recipeData); 
-}
+function addRecipeToSelectedMeal(recipe){
+  //Select the parent div of the selected radio button, from there find the child textarea.
+  let recipeBox = $("input:radio.meal-selection:checked").closest(".tabs").find('textarea');
+  recipeBox.val(recipe);
+};
