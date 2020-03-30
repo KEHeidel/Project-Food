@@ -41,7 +41,7 @@ var page = 0;
 // api variables
 var offset = 0;
 var number = 12;
-var apiKey = "7c25decce0a648a2bbdc2b3e073086b3";
+var apiKey = "645883e4a0414065b4c1cdce1966919e";
 
 // function to clear restaurants displayed on the page
 function clear() {
@@ -109,20 +109,6 @@ function getLocation() {
           "user-key": "daba5326e0fb1e88a8f800820e41822f"
         },
         dataType: "json"
-      }).then(function(response) {
-        clear();
-        offset = Math.floor(Math.random() * 100);
-        var fired_button = $(this).val();
-        console.log(fired_button);
-        var restaurant = "";
-        // query URL to receive restaurant results based on location 
-        var queryURL = "https://developers.zomato.com/api/v2.1/search?count=10&start=" + offset + "&entity_type=city&entity_id=" + fired_button;
-  
-        $.ajax({
-          url: queryURL,
-          method: "GET",
-          headers: {"user-key": "daba5326e0fb1e88a8f800820e41822f"},
-          dataType: "json",
         }).then(function(response){
           clear();
           console.log(response);
@@ -145,7 +131,7 @@ function getLocation() {
         });
       });
     });
-    })};
+    };
 
 // spoonacular api key & function to retrieve recipes
 // variables for pulling info from api
