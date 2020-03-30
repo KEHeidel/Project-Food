@@ -41,8 +41,7 @@ var page = 0;
 // api variables
 var offset = 0;
 var number = 12;
-
-var apiKey = "645883e4a0414065b4c1cdce1966919e";
+var apiKey = "a73309ccf0b7455f9070f52c2c420b6e";
 
 // function to clear restaurants displayed on the page
 function clear() {
@@ -168,14 +167,20 @@ function getrecipe(q) {
           iconImgs += icons[response.results[i].id][j];
         }
       }
-      recipes += `<div class="item"><div class="recipe-instructions" hidden>${recipeInfos[i].instructions}</div>
+      recipes += `<div class="item"><div class="recipe-instructions" hidden>Name: ${recipeInfos[i].title}. Ingredients: ${recipeInfos[i].ingredients}. Instructions: ${recipeInfos[i].instructions}</div>
       <p><a href="${recipeInfos[i].sourceUrl}">${response.results[i].title}</a></p> <p>${iconImgs}</p> <img class='stick' src="${response.baseUri}${response.results[i].image}" height='150' width='200'/>
+      <button class="select-recipe">Select</button>
       </div>`;
-      // add div thats hidden with the instructions , give class recipe-instructions
     }
 
     // adding retreived recipe information to the document
     document.getElementById("output").innerHTML = recipes;
+
+    // click event for selected recipe to be added to selected text area 
+    $(".select-recipe").click(function(event){
+      let recipeInstructions = $(this).closest(".item").find(".recipe-instructions").text()
+      addRecipeToSelectedMeal(recipeInstructions);
+    });
   });
 }
 // function to pull recipe info
@@ -195,14 +200,18 @@ function getRecipeInfo(ids) {
       recipes = [];
       icons = {};
       for (var i = 0; i < response.length; i++) {
+
+        let ingredientList = response[i].extendedIngredients
+          .map(ingredient => `${ingredient.amount} ${ingredient.unit} ${ingredient.name} `)
+          .join();
+
         var recipeInfo = {
           sourceUrl: response[i].sourceUrl,
           instructions: response[i].instructions,
-          title: response[i].title
-
-
+          title: response[i].title,
+          ingredients: ingredientList
         };
-        recipes.push(response[i]);
+        recipes.push(recipeInfo);
         if (
           response[i].vegan ||
           response[i].vegetarian ||
@@ -272,4 +281,7 @@ function addRecipeToSelectedMeal(recipe){
   //Select the parent div of the selected radio button, from there find the child textarea.
   let recipeBox = $("input:radio.meal-selection:checked").closest(".tabs").find('textarea');
   recipeBox.val(recipe);
+
+  
+
 };
