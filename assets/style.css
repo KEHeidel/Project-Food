@@ -100,6 +100,7 @@ p {
 
 .card .card-body {
   padding: 20px;
+  background-color: #f3f3f3;
 }
 
 .card .card-body h2,
@@ -124,11 +125,11 @@ p {
   border-radius: 8px;
   box-shadow: 3px 3px 3px 3px rgb(20, 5, 32);
   opacity: 80%;
-  background-color: #e2c274;
+  background-color:#f9bb9d;
 }
 h3{
   
-  font-size: xx-large;
+  font-size: large;
 }
 #search {
   font-size: x-large;
@@ -139,7 +140,7 @@ h3{
   background-repeat: no-repeat;
   padding: 15px 30px 15px 30px;
   opacity: 80%;
-  background-color: #e2c274;
+  background-color: #f9bb9d;
   /* border: black 3px solid; */
   border-radius: 10%;
   box-shadow: 3px 3px 3px 3px rgb(20, 5, 32);
@@ -156,7 +157,7 @@ h3{
   padding: 0;
   margin-right: -25px;
   opacity: 95%;
-  background-color: #e2c274;
+  background-color: #f9bb9d;
   color: black;
 }
 .input-open {
@@ -167,14 +168,14 @@ h3{
 
 /* recipe results (pop out or new box?) */
 #output {
-  background-color: rgba(0, 0, 0, 0.2); 
+  background-color: rgba(7, 164, 98, 0.589); 
   width: 50%;
   display: flex;
   flex-wrap: wrap;
   /* justify-content: space-between; */
   border-radius: 8px;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
-  opacity: 80%;
+  opacity: 90%;
   margin-top: 40px;
   margin-bottom: 40px;
   /* justify-content: center; */
@@ -192,18 +193,7 @@ h3{
 
 /* selected recipe (pop out or box) */
 /* restaurant search */
-.restSearch {
-  background: scroll;
-  background-color: #f9bb9d; 
-  width: 100%;
-  display: flex;
-  border-radius: 8px;
-  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
-  opacity: 80%;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  justify-content: center;
-}
+
 .input-restaurant {
     border-radius: 2px;
     border: 0;
@@ -213,7 +203,7 @@ h3{
     padding: 0;
     margin-right: -25px;
     opacity: 95%;
-    background-color: #e2c274;
+    background-color:#f9bb9d;
     color: black;
   }
 .input-open-restaurant {
@@ -227,7 +217,7 @@ h3{
     background-repeat: no-repeat;
     padding: 15px 30px 15px 30px;
     opacity: 80%;
-    background-color: #e2c274;
+    background-color: white;
     /* border: black 3px solid; */
     border-radius: 10%;
     box-shadow: 3px 3px 3px 3px rgb(20, 5, 32);
@@ -366,7 +356,7 @@ input:checked ~ .tab-content {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #756382;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -384,11 +374,11 @@ input:checked ~ .tab-content {
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #756382;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #756382;
 }
 
 input:checked + .slider:before {
