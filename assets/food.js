@@ -41,7 +41,6 @@ var page = 0;
 // api variables
 var offset = 0;
 var number = 12;
-
 var apiKey = "a73309ccf0b7455f9070f52c2c420b6e";
 
 // function to clear restaurants displayed on the page
