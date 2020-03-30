@@ -170,7 +170,7 @@ function getrecipe(q) {
       }
       recipes += `<div class="item"><div class="recipe-instructions" hidden>Name: ${recipeInfos[i].title}. Ingredients: ${recipeInfos[i].ingredients}. Instructions: ${recipeInfos[i].instructions}</div>
       <p><a href="${recipeInfos[i].sourceUrl}">${response.results[i].title}</a></p> <p>${iconImgs}</p> <img class='stick' src="${response.baseUri}${response.results[i].image}" height='150' width='200'/>
-      <button class="select-recipe">Select</button>
+      <button class="select-recipe">Add this recipe to planner</button>
       </div>`;
     }
 
