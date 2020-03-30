@@ -3,7 +3,7 @@ const trigger = document.querySelector(".searchButton");
 const input = document.querySelector(".input");
 
 // event listener for search bar keypress
-document.addEventListener("keypress", function(event) {
+document.addEventListener("keypress", function (event) {
   // console.log(event)
   if (event.which == 13) {
     event.preventDefault();
@@ -14,7 +14,7 @@ document.addEventListener("keypress", function(event) {
 // event listener to for "enter" key
 // set variable equal to what the user has entered into the #search field and grab this value
 // run getRecipe or find Restaurants function based on user search
-input.addEventListener("keypress", function(event) {
+input.addEventListener("keypress", function (event) {
   if (event.which == 13) {
     if ($("#toggleswitch").prop("checked") == true) {
       // helps to make sure form is filled in
@@ -63,7 +63,7 @@ function getLocation() {
       "user-key": "daba5326e0fb1e88a8f800820e41822f"
     },
     dataType: "json"
-  }).then(function(response) {
+  }).then(function (response) {
     clear();
 
     // loop city entered through Zomato and create a button for each option id
@@ -91,7 +91,7 @@ function getLocation() {
 
     // retrieve restaurants based on location id
     // user will select which city they desire
-    $(".location").click(function() {
+    $(".location").click(function () {
       clear();
       offset = Math.floor(Math.random() * 100);
       var fired_button = $(this).val();
@@ -109,29 +109,35 @@ function getLocation() {
           "user-key": "daba5326e0fb1e88a8f800820e41822f"
         },
         dataType: "json"
-        }).then(function(response){
-          clear();
-          console.log(response);
-          var resultsImg = "";
-          for (var i=0; i< response.restaurants.length; i++){
-            // setting each desired response to a variable
-            var resultsName = response.restaurants[i].restaurant.name;
-            var resultsUrl = response.restaurants[i].restaurant.url;
-            var resultsImg = response.restaurants[i].restaurant.thumb;
-            var resultsAddress = response.restaurants[i].restaurant.location.address;
-            var resultsTime = response.restaurants[i].restaurant.timings;
-            // setting var restaurant = how we want results displayed on the screen 
-            restaurant +=  `<div class="item">
+      }).then(function (response) {
+        clear();
+        console.log(response);
+        var resultsImg = "";
+        for (var i = 0; i < response.restaurants.length; i++) {
+          // setting each desired response to a variable
+          var resultsName = response.restaurants[i].restaurant.name;
+          var resultsUrl = response.restaurants[i].restaurant.url;
+          var resultsImg = response.restaurants[i].restaurant.thumb;
+          var resultsAddress = response.restaurants[i].restaurant.location.address;
+          var resultsTime = response.restaurants[i].restaurant.timings;
+          // setting var restaurant = how we want results displayed on the screen 
+          restaurant += `<div class="item"><div class="restaurant-toAdd" hidden>Restaurant: ${resultsName}. Address: ${resultsAddress}.</div>
             <p><a href="${resultsUrl}"> ${resultsName} </a></p> <img class='stick' src="${resultsImg}" height='150' width='200'/> <p>${resultsAddress}</p> 
-            <b>${"Hours Open: "}</b> ${resultsTime}
+            <b>${"Hours Open: "}</b> ${resultsTime} <button class="select-restaurant">Add this restaurant to planner</button>
             </div>`;
-          };
-          // appending restaurant variable to output section in html 
-          $("#output").append(restaurant);   
+        };
+        // appending restaurant variable to output section in html 
+        $("#output").append(restaurant);
+
+        // click event for selected restaurant to be added to selected text area 
+        $(".select-restaurant").click(function (event) {
+          let restaurantInfo = $(this).closest(".item").find(".restaurant-toAdd").text()
+          addRestaurantToSelectedMeal(restaurantInfo);
         });
       });
     });
-    };
+  });
+};
 
 // spoonacular api key & function to retrieve recipes
 // variables for pulling info from api
@@ -146,12 +152,12 @@ function getrecipe(q) {
     q + "&offset=" + offset + "&number=" + number + "&apiKey=" + apiKey;
 
   console.log("queryURL: " + queryURL);
-  
+
   $.ajax({
     url: queryURL,
     method: "GET",
     async: false
-  }).then(function(response) {
+  }).then(function (response) {
     // show picture and recipe
     console.log("API Response: ", response);
     for (var i = 0; i < response.results.length; i++) {
@@ -169,7 +175,7 @@ function getrecipe(q) {
       }
       recipes += `<div class="item"><div class="recipe-instructions" hidden>Name: ${recipeInfos[i].title}. Ingredients: ${recipeInfos[i].ingredients}. Instructions: ${recipeInfos[i].instructions}</div>
       <p><a href="${recipeInfos[i].sourceUrl}">${response.results[i].title}</a></p> <p>${iconImgs}</p> <img class='stick' src="${response.baseUri}${response.results[i].image}" height='150' width='200'/>
-      <button class="select-recipe">Select</button>
+      <button class="select-recipe">Add this recipe to planner</button>
       </div>`;
     }
 
@@ -177,7 +183,7 @@ function getrecipe(q) {
     document.getElementById("output").innerHTML = recipes;
 
     // click event for selected recipe to be added to selected text area 
-    $(".select-recipe").click(function(event){
+    $(".select-recipe").click(function (event) {
       let recipeInstructions = $(this).closest(".item").find(".recipe-instructions").text()
       addRecipeToSelectedMeal(recipeInstructions);
     });
@@ -194,7 +200,7 @@ function getRecipeInfo(ids) {
     url: queryURL,
     method: "GET",
     async: false,
-    success: function(response) {
+    success: function (response) {
       console.log("API Response: ", response);
 
       recipes = [];
@@ -249,12 +255,12 @@ function getRecipeInfo(ids) {
   return recipes;
 }
 // add class input-open to input variable and input-open-restaurant to inputRest variable
-$(document).ready(function() {
+$(document).ready(function () {
   input.classList.add("input-open");
   // inputRest.classList.add("input-open");
   // when search button is clicked, grab the value from search button
   // run getRecipe function
-  $(".searchButton").on("click", function(event) {
+  $(".searchButton").on("click", function (event) {
     if ($("#toggleswitch").prop("checked") == true) {
       // helps to make sure form is filled in
       event.preventDefault();
@@ -269,7 +275,7 @@ $(document).ready(function() {
   });
 });
 
-$("textarea").keypress(function(event) {
+$("textarea").keypress(function (event) {
   if (event.which === 13) {
     event.stopPropagation();
   }
@@ -277,11 +283,13 @@ $("textarea").keypress(function(event) {
 
 // function to add selected recipe (by button) 
 // to selected day and meal in planner
-function addRecipeToSelectedMeal(recipe){
+function addRecipeToSelectedMeal(recipe) {
   //Select the parent div of the selected radio button, from there find the child textarea.
   let recipeBox = $("input:radio.meal-selection:checked").closest(".tabs").find('textarea');
   recipeBox.val(recipe);
+};
 
-  
-
+function addRestaurantToSelectedMeal(restaurant) {
+  let restaurantBox = $("input:radio.meal-selection:checked").closest(".tabs").find('textarea');
+  restaurantBox.val(restaurant);
 };
