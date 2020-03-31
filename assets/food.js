@@ -42,7 +42,9 @@ var page = 0;
 var offset = 0;
 var number = 12;
 
+
 var apiKey = "e6869169e6db4994bd6dc27d227266de";
+
 
 // function to clear restaurants displayed on the page
 function clear() {
