@@ -4,8 +4,9 @@ body {
   position: relative;
 }
 
+
 body {
-    background-image: url("../assets/images/pexels-photo-purpleandgreen.jpeg");
+  background-image: url("../assets/images/pexels-photo-purpleandgreen.jpeg");
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -16,6 +17,8 @@ body {
   background-size: cover;
   font-family: "Gotu", sans-serif;
 }
+
+.meal-selection{display: none};
 
 .containerWhole {
     min-height: 100%;
@@ -48,11 +51,11 @@ p {
 }
 /* Monday - Sunday column card style */
 .card {
-  max-width: 170px;
+  max-width: 180px;
   background: #ffffff;
   border-radius: 8px;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
-  margin-right: 25px;
+  margin-right: 20px;
   transition: 0.2s ease-in-out;
   /* border-radius: 10%; */
   box-shadow: 3px 3px 3px 3px rgb(20, 5, 32);
@@ -100,6 +103,7 @@ p {
 
 .card .card-body {
   padding: 20px;
+  background-color: #f3f3f3;
 }
 
 .card .card-body h2,
@@ -116,7 +120,6 @@ p {
   margin-top: 40px;
   margin-bottom: 40px;
   color: #ffffff;
-  
 }
 .search-wrapper {
   width: 50%;
@@ -124,11 +127,11 @@ p {
   border-radius: 8px;
   box-shadow: 3px 3px 3px 3px rgb(20, 5, 32);
   opacity: 80%;
-  background-color: #e2c274;
+  background-color:#f9bb9d;
 }
 h3{
   
-  font-size: xx-large;
+  font-size: large;
 }
 #search {
   font-size: x-large;
@@ -139,7 +142,7 @@ h3{
   background-repeat: no-repeat;
   padding: 15px 30px 15px 30px;
   opacity: 80%;
-  background-color: #e2c274;
+  background-color: #f9bb9d;
   /* border: black 3px solid; */
   border-radius: 10%;
   box-shadow: 3px 3px 3px 3px rgb(20, 5, 32);
@@ -156,7 +159,7 @@ h3{
   padding: 0;
   margin-right: -25px;
   opacity: 95%;
-  background-color: #e2c274;
+  background-color: #f9bb9d;
   color: black;
 }
 .input-open {
@@ -167,14 +170,14 @@ h3{
 
 /* recipe results (pop out or new box?) */
 #output {
-  background-color: rgba(0, 0, 0, 0.2); 
+  background-color: rgba(7, 164, 98, 0.589); 
   width: 50%;
   display: flex;
   flex-wrap: wrap;
   /* justify-content: space-between; */
   border-radius: 8px;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
-  opacity: 80%;
+  opacity: 90%;
   margin-top: 40px;
   margin-bottom: 40px;
   /* justify-content: center; */
@@ -192,18 +195,7 @@ h3{
 
 /* selected recipe (pop out or box) */
 /* restaurant search */
-.restSearch {
-  background: scroll;
-  background-color: #f9bb9d; 
-  width: 100%;
-  display: flex;
-  border-radius: 8px;
-  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
-  opacity: 80%;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  justify-content: center;
-}
+
 .input-restaurant {
     border-radius: 2px;
     border: 0;
@@ -213,7 +205,7 @@ h3{
     padding: 0;
     margin-right: -25px;
     opacity: 95%;
-    background-color: #e2c274;
+    background-color:#f9bb9d;
     color: black;
   }
 .input-open-restaurant {
@@ -227,7 +219,7 @@ h3{
     background-repeat: no-repeat;
     padding: 15px 30px 15px 30px;
     opacity: 80%;
-    background-color: #e2c274;
+    background-color: white;
     /* border: black 3px solid; */
     border-radius: 10%;
     box-shadow: 3px 3px 3px 3px rgb(20, 5, 32);
@@ -347,8 +339,8 @@ input:checked ~ .tab-content {
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
+  width: 200px;
+  height: 40px;
 }
 
 /* Hide default HTML checkbox */
@@ -366,7 +358,7 @@ input:checked ~ .tab-content {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #756382;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -374,9 +366,9 @@ input:checked ~ .tab-content {
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
+  height: 30px;
+  width: 30px;
+  left: 40px;
   bottom: 4px;
   background-color: white;
   -webkit-transition: .4s;
@@ -384,11 +376,11 @@ input:checked ~ .tab-content {
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #756382;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #756382;
 }
 
 input:checked + .slider:before {
@@ -403,6 +395,6 @@ input:checked + .slider:before {
 }
 
 .slider.round:before {
-  border-radius: 50%;
+  border-radius: 90%;
 }
 

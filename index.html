@@ -8,9 +8,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
   <link rel="stylesheet" href="assets/style.css" />
+<<<<<<< HEAD
   <!--Adding Favicon-->
   <link rel="short icon" type="image/png" href="assets/Favicon/favicon.png">
   <meta name="theme-color" content="#ffffff">
+=======
+  <link rel="stylesheet" href="assets/animate.css">
+>>>>>>> 2481fab2e23ac4bb167f0c2df057850ac649a1dd
   <link href="https://fonts.googleapis.com/css?family=Gotu&display=swap" rel="stylesheet" />
   <!-- <script src="https://kit.fontawesome.com/81c2c05f29.js" crossorigin="anonymous"></script> -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -28,7 +32,8 @@
       <h1 class="display-4">Weekly Meal Plan</h1>
       <p class="lead">
         Store your weekly meal plan recipes and ideas in your own personal
-        weekly planner. Search for recipes using key ingredients!
+        weekly planner. Search for recipes to add to your plan or search for 
+        a restaurant by city to plan where to go for your meal!
       </p>
     </div>
   </div>
@@ -45,17 +50,22 @@
         <!-- accordion tab-->
         <div class="accordian">
           <div class="tabs">
-            <input type="radio" name="tab" id="monB" />
+            <input type="radio" class="meal-selection" name="tab" id="monB" />
             <label class="tab-heading" for="monB">
               <h2>Breakfast</h2>
             </label>
             <div class="tab-content">
+<<<<<<< HEAD
               <textarea class="form-control" rows="5" cols="15" id="recipe-box"></textarea>
 
+=======
+                    <textarea class="form-control recipe-box" rows="5" cols="15" id="monb-textarea"></textarea>
+                  
+>>>>>>> 2481fab2e23ac4bb167f0c2df057850ac649a1dd
             </div>
           </div>
           <div class="tabs">
-            <input type="radio" name="tab" id="monL" />
+            <input type="radio" class="meal-selection" name="tab" id="monL" />
             <label class="tab-heading" for="monL">
               <h2>Lunch</h2>
             </label>
@@ -64,7 +74,7 @@
             </div>
           </div>
           <div class="tabs">
-            <input type="radio" name="tab" id="monD" />
+            <input type="radio" class="meal-selection" name="tab" id="monD" />
             <label class="tab-heading" for="monD">
               <h2>Dinner</h2>
             </label>
@@ -83,7 +93,7 @@
       <div class="card-body">
         <div class="accordian">
           <div class="tabs">
-            <input type="radio" name="tab" id="tuesB" />
+            <input type="radio" class="meal-selection" name="tab" id="tuesB" />
             <label class="tab-heading" for="tuesB">
               <h2>Breakfast</h2>
             </label>
@@ -92,7 +102,7 @@
             </div>
           </div>
           <div class="tabs">
-            <input type="radio" name="tab" id="tuesL" />
+            <input type="radio" class="meal-selection" name="tab" id="tuesL" />
             <label class="tab-heading" for="tuesL">
               <h2>Lunch</h2>
             </label>
@@ -101,7 +111,7 @@
             </div>
           </div>
           <div class="tabs">
-            <input type="radio" name="tab" id="tuesD" />
+            <input type="radio" class="meal-selection" name="tab" id="tuesD" />
             <label class="tab-heading" for="tuesD">
               <h2>Dinner</h2>
             </label>
@@ -120,7 +130,7 @@
       <div class="card-body">
         <div class="accordian">
           <div class="tabs">
-            <input type="radio" name="tab" id="wedB" />
+            <input type="radio" class="meal-selection" name="tab" id="wedB" />
             <label class="tab-heading" for="wedB">
               <h2>Breakfast</h2>
             </label>
@@ -129,7 +139,7 @@
             </div>
           </div>
           <div class="tabs">
-            <input type="radio" name="tab" id="wedL" />
+            <input type="radio" class="meal-selection" name="tab" id="wedL" />
             <label class="tab-heading" for="wedL">
               <h2>Lunch</h2>
             </label>
@@ -138,7 +148,7 @@
             </div>
           </div>
           <div class="tabs">
-            <input type="radio" name="tab" id="wedD" />
+            <input type="radio" class="meal-selection" name="tab" id="wedD" />
             <label class="tab-heading" for="wedD">
               <h2>Dinner</h2>
             </label>
@@ -157,7 +167,7 @@
       <div class="card-body">
         <div class="accordian">
           <div class="tabs">
-            <input type="radio" name="tab" id="thuB" />
+            <input type="radio" class="meal-selection" name="tab" id="thuB" />
             <label class="tab-heading" for="thuB">
               <h2>Breakfast</h2>
             </label>
@@ -166,7 +176,7 @@
             </div>
           </div>
           <div class="tabs">
-            <input type="radio" name="tab" id="thuL" />
+            <input type="radio" class="meal-selection" name="tab" id="thuL" />
             <label class="tab-heading" for="thuL">
               <h2>Lunch</h2>
             </label>
@@ -175,7 +185,7 @@
             </div>
           </div>
           <div class="tabs">
-            <input type="radio" name="tab" id="thuD" />
+            <input type="radio" class="meal-selection" name="tab" id="thuD" />
             <label class="tab-heading" for="thuD">
               <h2>Dinner</h2>
             </label>
@@ -194,7 +204,7 @@
       <div class="card-body">
         <div class="accordian">
           <div class="tabs">
-            <input type="radio" name="tab" id="friB" />
+            <input type="radio" class="meal-selection" name="tab" id="friB" />
             <label class="tab-heading" for="friB">
               <h2>Breakfast</h2>
             </label>
@@ -203,7 +213,7 @@
             </div>
           </div>
           <div class="tabs">
-            <input type="radio" name="tab" id="friL" />
+            <input type="radio" class="meal-selection" name="tab" id="friL" />
             <label class="tab-heading" for="friL">
               <h2>Lunch</h2>
             </label>
@@ -212,7 +222,7 @@
             </div>
           </div>
           <div class="tabs">
-            <input type="radio" name="tab" id="friD" />
+            <input type="radio" class="meal-selection" name="tab" id="friD" />
             <label class="tab-heading" for="friD">
               <h2>Dinner</h2>
             </label>
@@ -231,7 +241,7 @@
       <div class="card-body">
         <div class="accordian">
           <div class="tabs">
-            <input type="radio" name="tab" id="satB" />
+            <input type="radio" class="meal-selection" name="tab" id="satB" />
             <label class="tab-heading" for="satB">
               <h2>Breakfast</h2>
             </label>
@@ -240,7 +250,7 @@
             </div>
           </div>
           <div class="tabs">
-            <input type="radio" name="tab" id="satL" />
+            <input type="radio" class="meal-selection" name="tab" id="satL" />
             <label class="tab-heading" for="satL">
               <h2>Lunch</h2>
             </label>
@@ -249,7 +259,7 @@
             </div>
           </div>
           <div class="tabs">
-            <input type="radio" name="tab" id="satD" />
+            <input type="radio" class="meal-selection" name="tab" id="satD" />
             <label class="tab-heading" for="satD">
               <h2>Dinner</h2>
             </label>
@@ -268,7 +278,7 @@
       <div class="card-body">
         <div class="accordian">
           <div class="tabs">
-            <input type="radio" name="tab" id="sunB" />
+            <input type="radio" class="meal-selection" name="tab" id="sunB" />
             <label class="tab-heading" for="sunB">
               <h2>Breakfast</h2>
             </label>
@@ -277,7 +287,7 @@
             </div>
           </div>
           <div class="tabs">
-            <input type="radio" name="tab" id="sunL" />
+            <input type="radio" class="meal-selection" name="tab" id="sunL" />
             <label class="tab-heading" for="sunL">
               <h2>Lunch</h2>
             </label>
@@ -286,7 +296,7 @@
             </div>
           </div>
           <div class="tabs">
-            <input type="radio" name="tab" id="sunD" />
+            <input type="radio" class="meal-selection" name="tab" id="sunD" />
             <label class="tab-heading" for="sunD">
               <h2>Dinner</h2>
             </label>
@@ -298,6 +308,7 @@
       </div>
     </div>
   </div>
+<<<<<<< HEAD
 
   <!-- recipe search area (button) -->
   <div class="whole-wrapper">
@@ -313,6 +324,32 @@
   </div>
   <!-- restaurant search area (button) -->
   <!-- <div class="whole-wrapper">
+=======
+  
+    <!-- recipe search area (button) -->
+    <div class="whole-wrapper animated bounceInDown">
+      <div class="search-wrapper">
+        <h3>Search for a recipe or restaurant:
+            
+        </h3>
+
+        <input
+          id="search"
+          type="text"
+          class="input"
+          placeholder="Your search here..."
+        />
+        <label class="switch"> 
+          <input id="toggleswitch" type="checkbox" checked="checked">
+          <span class="slider round"> restaurant - - recipe</span>
+        </label>
+    </div>
+    <button type="button" class="searchButton"></button>
+</div>
+
+     <!-- restaurant search area (button) -->
+    <!-- <div class="whole-wrapper">
+>>>>>>> 2481fab2e23ac4bb167f0c2df057850ac649a1dd
      <div class="search-wrapper">
 
       <h3>Search for a restaurant:</h3>
