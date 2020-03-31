@@ -9,23 +9,19 @@
 
 -The **Homepage** features a Sunday through Saturday planner with open form style so that you can save the links you find for your favorite recipes and enter notes as desired. There is also a search bar located at the bottom of the page.
 
-![Homepage](assets/Screenshots/project.jpg)
+![Homepage](assets/Screenshots/hp1.png)
 
 - Using the **Search bar** and **Toggle** selected to the right (highlighted in blue), the user can enter a keyword, and the browser will display a collection of relevant recipes from the most popular recipe sources on the web.
 
-![Search specific recipes](assets/Screenshots/SearchRecipe.png)
+![Search specific recipes](assets/Screenshots/food.png)
 
-- The user can check out _ingredients list_ of each recipe.
+- The user can check out _ingredients list_ of each recipe.Once the  user finds a recipe they like, they are able to select which meal they would like to allocate it to.
 
-![Add to weekly planner]()
-
-- Once the user finds a recipe they want to add to their weekly meal planner, the user can select it, then use **a drop-down menu** to add the recipe to a specific day of the week.
-
-![Editable meal palnner]()
+![Add to weekly planner](assets/Screenshots/planner.png)
 
 - If the user would like to replace a home cooked meal with a dine out option, they can simply use the **Search Bar** and **Toggle** selected to the left and type in the city/state, and a list of the most popular restaurants in that area will populate.
 
-![Find a restaurant](assets/Screenshots/SearchRestaurant.png)
+![Find a restaurant](assets/Screenshots/rest.png)
 
 -
 
