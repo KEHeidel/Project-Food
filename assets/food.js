@@ -187,6 +187,7 @@ function getrecipe(q) {
 
     // click event for selected recipe to be added to selected text area 
     $(".select-recipe").click(function (event) {
+      debugger
       let recipeInstructions = $(this).closest(".item").find(".recipe-instructions").text()
       addRecipeToSelectedMeal(recipeInstructions);
     });
