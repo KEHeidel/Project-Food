@@ -7,7 +7,7 @@
 
 ## Product features
 
--The **Homepage** features a Sunday through Saturday planner with open form style so that you can save the links you find for your favorite recipes and enter notes as desired. There is also a search bar located at the bottom of the page.
+- The **Homepage** features a Sunday through Saturday planner with open form style so that you can save the links you find for your favorite recipes and enter notes as desired. There is also a search bar located at the bottom of the page.
 
 ![Homepage](assets/Screenshots/hp1.png)
 
@@ -23,7 +23,7 @@
 
 ![Find a restaurant](assets/Screenshots/rest.png)
 
--
+
 
 ---
 
@@ -33,9 +33,9 @@
 
 - [Zomato API](https://developers.zomato.com/api) _returns restaurants in the area_
 - [Bootstrap](https://getbootstrap.com/) _framework_
-- [Favicon Generator](https://www.favicon-generator.org/)_created favicon from local image_
+- [Favicon Generator](https://www.favicon-generator.org/) _created favicon from local image_
 
-- [Animate CSS](https://daneden.github.io/animate.css/)_animates search bar_
+- [Animate CSS](https://daneden.github.io/animate.css/) _animates search bar_
 
 ---
 
