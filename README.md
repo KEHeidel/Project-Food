@@ -39,6 +39,11 @@
 
 ---
 
+## Links
+
+- Github repo: https://github.com/KEHeidel/Project-Food
+- Deployed site: https://github.com/KEHeidel/Project-Food/settings
+
 ---
 
 ## Authors
